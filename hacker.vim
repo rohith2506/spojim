@@ -52,9 +52,24 @@ data = {
 
 r = requests.post(RUN_URL, data=data)
 inp = json.loads(r.text)
-print inp['result']['stderr']
-for i in range(0,len(tst)):
-	print inp['result']['stdout'][i]
+
+errors = inp['result']['stderr']
+
+flag = 0
+for err in errors:
+	if err:
+		flag = 1
+
+if flag == 1:
+	print "Your code has some Bugs.Following are the errors..fix them..:-)"
+	for err in errors:
+		print err
+else:
+	print "Great!!!Your code has been successfully compiled and here's the ouput..:-)"
+	for i in range(0,len(tst)):
+		x = inp['result']['stdout'][i]
+		x = x[0:len(x)-1]
+		print x
 
 EOF
 endfunction
