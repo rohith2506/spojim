@@ -1,12 +1,13 @@
 Online Code checker
-This plugin provides to check your code online based on hackerrank compiler
+This plugin provides to check your code online based on hackerrank compiler and spoj also.
 
 files present:
 hacker.vim
-source.py
-source2.py
-test.py
+spoj.vim
+mech.py
+Re.py
+remaining test files
 
-Changes to be done:
-1) detect the file type and provide automatic judgement
-2) Provide alternative for filepaths hard coding
+Changes need to be done:
+1)Testing 
+2)Modifications for Hard coding
