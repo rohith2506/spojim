@@ -16,6 +16,7 @@ from bs4 import BeautifulSoup
 base_url = "http://www.spoj.com"
 submit_key = "/submit/"
 status_key = "/status/"
+NZEC = "(NZEC)"
 errors = ["accepted","time limit exceeded","wrong answer","compilation error","runtime error"]
 languages ={"c":11,"cpp":41,"java":10,"cs":27,"php":29,"ruby":17,
 			"python":4,"perl":3,"haskell":21,"clojure":111,"scala":39,"bash":28,
@@ -123,15 +124,18 @@ while True:
 			flag2 = 1
 		elif res == "runtime error":
 			temp = lst[0].split()
-#			print temp
-			temp_str = temp[2] +" " + temp[3]
-			temp_str = temp_str[1:len(temp_str)-1]
-#			print temp_str
-			soup2 = BeautifulSoup(temp_str)
-#			print soup2
-			x = soup2.a.get_text()
-#			print x
-			print temp[0] + " "+ temp[1] + "(" + x + ")"
+			if temp[2] == NZEC:
+				print lst[0]
+			else:
+	#			print temp
+				temp_str = temp[2] +" " + temp[3]
+				temp_str = temp_str[1:len(temp_str)-1]
+	#			print temp_str
+				soup2 = BeautifulSoup(temp_str)
+	#			print soup2
+				x = soup2.a.get_text()
+	#			print x
+				print temp[0] + " "+ temp[1] + "(" + x + ")"
 			flag2 = 1
 		elif res == "compilation error":
 			# its different here
@@ -154,7 +158,7 @@ while True:
 			pass
 	else:
 		print lst[0]
-		time.sleep(2)
+		time.sleep(5)
 
 	if flag2 == 1:
 		break
