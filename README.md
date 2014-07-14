@@ -1,10 +1,9 @@
 SPOJIM
 ======
-Vim plugin for hacker rank
 
-<h4>
+<b>
 This vim plugin providies running your code in spoj and watching its status from your vim editor.
-</h4>
+</b>
 
 <h4>Usage:-</h4></br>
 <p>Download spoj.vim here and keep it in your vim plugins directory and replace username and password with your username and
